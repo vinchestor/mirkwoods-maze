@@ -1,12 +1,9 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    public bool FacingLeft {  get { return facingLeft; } set { facingLeft = value; } }
 
     [SerializeField] private float _moveSpeed = 1f;
 
@@ -18,6 +15,8 @@ public class PlayerController : MonoBehaviour
 
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
+
+    private bool facingLeft = false;
 
     private void Awake()
     {
@@ -59,16 +58,18 @@ public class PlayerController : MonoBehaviour
 
     private void AdjustPlayerFacingDirection()
     {
-        Vector3 mousePos = Mouse.current.position.ReadValue();
+        Vector3 mousePos = Input.mousePosition;
         Vector3 playerScreenPoint = Camera.main.WorldToScreenPoint(transform.position);
 
         if (mousePos.x > playerScreenPoint.x)
         {
             _spriteRenderer.flipX = true;
+            FacingLeft = true;
         }
         else
         {
             _spriteRenderer.flipX = false;
+            FacingLeft = false;
         }
     }
 

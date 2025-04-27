@@ -4,27 +4,34 @@ using UnityEngine;
 
 public class SwordVisual : MonoBehaviour
 {
-    private PlayerControls playerControls;
-    private Animator myAnimator;
-    private PlayerController playerController;
-    private ActiveWeapon activeWeapon;
+    [SerializeField] private GameObject _swordSlash;
+    [SerializeField] private Transform _slashSpawnPoint;
+
+    private PlayerControls _playerControls;
+    private Animator _animator;
+    private PlayerController _playerController;
+    private ActiveWeapon _activeWeapon;
+
+    private const string ATTACK = "Attack";
+
+    private GameObject _slash;
 
     private void Awake()
     {
-        playerController = GetComponentInParent<PlayerController>();
-        activeWeapon = GetComponentInParent<ActiveWeapon>();
-        myAnimator = GetComponent<Animator>();
-        playerControls = new PlayerControls();
+        _playerController = GetComponentInParent<PlayerController>();
+        _activeWeapon = GetComponentInParent<ActiveWeapon>();
+        _animator = GetComponent<Animator>();
+        _playerControls = new PlayerControls();
     }
 
     private void OnEnable()
     {
-        playerControls.Enable();
+        _playerControls.Enable();
     }
 
     void Start()
     {
-        playerControls.Combat.Attack.started += _ => Attack();
+        _playerControls.Combat.Attack.started += _ => Attack();
     }
 
     private void Update()
@@ -34,23 +41,44 @@ public class SwordVisual : MonoBehaviour
 
     private void Attack()
     {
-        myAnimator.SetTrigger("Attack");
+        _animator.SetTrigger(ATTACK);
+
+        _slash = Instantiate(_swordSlash, _slashSpawnPoint.position, Quaternion.identity);
+        _slash.transform.parent = this.transform.parent;
+    }
+
+    public void SwingUpFlip()
+    {
+        _slash.gameObject.transform.rotation = Quaternion.Euler(-180, 0, 0);
+
+        if (_playerController.FacingLeft)
+        {
+            _slash.GetComponent<SpriteRenderer>().flipX = true;
+        }
+    }
+
+    public void SwingDownFlip()
+    {
+        _slash.gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+
+        if (_playerController.FacingLeft)
+        {
+            _slash.GetComponent<SpriteRenderer>().flipX = true;
+        }
     }
 
     private void MouseFollowWithOffset()
     {
         Vector3 mousePos = Input.mousePosition;
-        Vector3 playerScreenPoint = Camera.main.WorldToScreenPoint(playerController.transform.position);
-
-        float angle = Mathf.Atan2(mousePos.x, mousePos.y) * Mathf.Rad2Deg;
+        Vector3 playerScreenPoint = Camera.main.WorldToScreenPoint(_playerController.transform.position);
 
         if (mousePos.x > playerScreenPoint.x)
         {
-            activeWeapon.transform.rotation = Quaternion.Euler(0, -180, angle);
+            _activeWeapon.transform.rotation = Quaternion.Euler(0, -180, 0);
         }
         else
         {
-            activeWeapon.transform.rotation = Quaternion.Euler(0, 0, angle);
+            _activeWeapon.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
     }
 }
