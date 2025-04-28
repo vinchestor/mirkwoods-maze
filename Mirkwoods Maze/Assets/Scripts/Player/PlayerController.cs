@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public bool FacingLeft {  get { return facingLeft; } set { facingLeft = value; } }
+    public bool FacingLeft { get { return facingLeft; } set { facingLeft = value; } }
 
     [SerializeField] private float _moveSpeed = 1f;
 
@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
 
     private bool facingLeft = false;
 
+    //
     private void Awake()
     {
         _playerControls = new PlayerControls();
@@ -25,7 +26,6 @@ public class PlayerController : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
     }
-
 
     private void OnEnable()
     {
@@ -42,6 +42,10 @@ public class PlayerController : MonoBehaviour
         AdjustPlayerFacingDirection();
         Move();
     }
+
+
+
+    //private 
 
     private void PlayerInput()
     {

@@ -6,6 +6,7 @@ public class SwordVisual : MonoBehaviour
 {
     [SerializeField] private GameObject _swordSlash;
     [SerializeField] private Transform _slashSpawnPoint;
+    [SerializeField] private Transform _weaponCollider;
 
     private PlayerControls _playerControls;
     private Animator _animator;
@@ -16,6 +17,7 @@ public class SwordVisual : MonoBehaviour
 
     private GameObject _slash;
 
+//
     private void Awake()
     {
         _playerController = GetComponentInParent<PlayerController>();
@@ -39,12 +41,13 @@ public class SwordVisual : MonoBehaviour
         MouseFollowWithOffset();
     }
 
-    private void Attack()
-    {
-        _animator.SetTrigger(ATTACK);
 
-        _slash = Instantiate(_swordSlash, _slashSpawnPoint.position, Quaternion.identity);
-        _slash.transform.parent = this.transform.parent;
+
+    //public
+
+    public void DoneAttackEvent()
+    {
+        _weaponCollider.gameObject.SetActive(false);
     }
 
     public void SwingUpFlip()
@@ -67,6 +70,18 @@ public class SwordVisual : MonoBehaviour
         }
     }
 
+
+    //priavte
+
+    private void Attack()
+    {
+        _animator.SetTrigger(ATTACK);
+        _weaponCollider.gameObject.SetActive(true);
+
+        _slash = Instantiate(_swordSlash, _slashSpawnPoint.position, Quaternion.identity);
+        _slash.transform.parent = this.transform.parent;
+    }
+
     private void MouseFollowWithOffset()
     {
         Vector3 mousePos = Input.mousePosition;
@@ -75,10 +90,12 @@ public class SwordVisual : MonoBehaviour
         if (mousePos.x > playerScreenPoint.x)
         {
             _activeWeapon.transform.rotation = Quaternion.Euler(0, -180, 0);
-        }
+            _weaponCollider.transform.rotation = Quaternion.Euler(0, -180, 0);
+;        }
         else
         {
             _activeWeapon.transform.rotation = Quaternion.Euler(0, 0, 0);
+            _weaponCollider.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
     }
 }

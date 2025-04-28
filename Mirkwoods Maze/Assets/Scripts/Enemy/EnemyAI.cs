@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
+
+
+    //
+
     //машина состояний
     private enum State
     {
@@ -23,6 +27,14 @@ public class EnemyAI : MonoBehaviour
     {
         StartCoroutine(RoamingRoutine());
     }
+
+
+    //public
+
+
+
+
+    //private
 
     private IEnumerator RoamingRoutine()
     {
