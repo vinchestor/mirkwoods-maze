@@ -842,17 +842,22 @@ PolygonCollider2D:
       - {x: -0.6708572, y: 0.41074264}
       - {x: -0.757303, y: 0.8475441}
       - {x: -0.39599875, y: 1.5584667}
-      - {x: -0.92515177, y: 1.5863199}
-      - {x: -1.381041, y: 1.4459409}
-      - {x: -1.7384208, y: 1.1574842}
-      - {x: -1.8085992, y: 0.50555724}
-      - {x: -1.6983905, y: -0.13595748}
-      - {x: -1.3854848, y: -0.57047427}
-      - {x: -1.1239775, y: -0.72251284}
-      - {x: -0.8872453, y: -0.75417936}
-      - {x: -0.58904886, y: -0.68266755}
-      - {x: -0.42378354, y: -0.6735475}
-      - {x: -0.10459298, y: -0.5981165}
+      - {x: -0.74805915, y: 1.4824305}
+      - {x: -1.1172988, y: 1.1932316}
+      - {x: -1.298375, y: 0.9693321}
+      - {x: -1.4038732, y: 0.72095907}
+      - {x: -1.45086, y: 0.3935135}
+      - {x: -1.4054989, y: 0.054712772}
+      - {x: -1.2700566, y: -0.23369458}
+      - {x: -1.182084, y: -0.39500058}
+      - {x: -1.182084, y: -0.39500058}
+      - {x: -0.96404994, y: -0.53372514}
+      - {x: -0.6970407, y: -0.646968}
+      - {x: -0.51202726, y: -0.69191563}
+      - {x: -0.2752949, y: -0.70828307}
+      - {x: -0.17598248, y: -0.6979663}
+      - {x: -0.010717392, y: -0.6582484}
+      - {x: 0.07899195, y: -0.53692144}
       - {x: 0.19464546, y: -0.42546898}
   m_UseDelaunayMesh: 0
 --- !u!114 &1711160640
@@ -868,6 +873,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageAmount: 1
+  _damageCooldown: 0.5
 --- !u!1 &1773631531
 GameObject:
   m_ObjectHideFlags: 0
@@ -1067,11 +1073,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1904505541743330185, guid: 12b239ab0a115da42b6e557b43a31cc1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.23
+      value: 2.36
       objectReference: {fileID: 0}
     - target: {fileID: 1904505541743330185, guid: 12b239ab0a115da42b6e557b43a31cc1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.77
+      value: 0.47
       objectReference: {fileID: 0}
     - target: {fileID: 1904505541743330185, guid: 12b239ab0a115da42b6e557b43a31cc1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1105,27 +1111,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2701320909201159922, guid: 12b239ab0a115da42b6e557b43a31cc1, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6547423396184888203, guid: 12b239ab0a115da42b6e557b43a31cc1, type: 3}
       propertyPath: _moveSpeed
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6939111792811961208, guid: 12b239ab0a115da42b6e557b43a31cc1, type: 3}
       propertyPath: m_Name
       value: Ork
       objectReference: {fileID: 0}
-    - target: {fileID: 7641945393366851995, guid: 12b239ab0a115da42b6e557b43a31cc1, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6939111792811961208, guid: 12b239ab0a115da42b6e557b43a31cc1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1504968956201355937}
   m_SourcePrefab: {fileID: 100100000, guid: 12b239ab0a115da42b6e557b43a31cc1, type: 3}
+--- !u!1 &1504968956201355926 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6939111792811961208, guid: 12b239ab0a115da42b6e557b43a31cc1, type: 3}
+  m_PrefabInstance: {fileID: 1504968956201355925}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1504968956201355937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504968956201355926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc562627cc4cbad43ba098e640f54578, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _whiteFlashMaterial: {fileID: 2100000, guid: b80505572b32979419260cba7682b82c, type: 2}
+  _restoreDefaultMaterialTime: 0.2
 --- !u!1001 &4778177402378892571
 PrefabInstance:
   m_ObjectHideFlags: 0

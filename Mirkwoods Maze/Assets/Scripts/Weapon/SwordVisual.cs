@@ -76,6 +76,7 @@ public class SwordVisual : MonoBehaviour
     private void Attack()
     {
         _animator.SetTrigger(ATTACK);
+        _weaponCollider.gameObject.SetActive(false); 
         _weaponCollider.gameObject.SetActive(true);
 
         _slash = Instantiate(_swordSlash, _slashSpawnPoint.position, Quaternion.identity);

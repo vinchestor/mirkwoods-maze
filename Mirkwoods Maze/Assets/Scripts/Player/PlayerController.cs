@@ -5,6 +5,8 @@ public class PlayerController : MonoBehaviour
 {
     public bool FacingLeft { get { return facingLeft; } set { facingLeft = value; } }
 
+    public static PlayerController Instance;
+
     [SerializeField] private float _moveSpeed = 1f;
 
     private PlayerControls _playerControls;
@@ -21,6 +23,7 @@ public class PlayerController : MonoBehaviour
     //
     private void Awake()
     {
+        Instance = this;
         _playerControls = new PlayerControls();
         _rigidbody = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
