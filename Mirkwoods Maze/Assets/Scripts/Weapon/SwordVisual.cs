@@ -1,23 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using UnityEngine;
 
 public class SwordVisual : MonoBehaviour
 {
-    [SerializeField] private GameObject _swordSlash;
+    [SerializeField] private GameObject _swordSlash; //slashAnimPrefab
     [SerializeField] private Transform _slashSpawnPoint;
     [SerializeField] private Transform _weaponCollider;
+    [SerializeField] private float _swordAttack = 0.5f;
 
     private PlayerControls _playerControls;
     private Animator _animator;
     private PlayerController _playerController;
     private ActiveWeapon _activeWeapon;
+    private bool _attackButtonDown = false;
+    private bool _isAttacking = false;
 
     private const string ATTACK = "Attack";
 
-    private GameObject _slash;
+    private GameObject _slash; //slashAnim
 
-//
+    //
     private void Awake()
     {
         _playerController = GetComponentInParent<PlayerController>();
@@ -33,12 +37,14 @@ public class SwordVisual : MonoBehaviour
 
     void Start()
     {
-        _playerControls.Combat.Attack.started += _ => Attack();
+        _playerControls.Combat.Attack.started += _ => StartAttacking();
+        _playerControls.Combat.Attack.canceled += _ => StopAttacking();
     }
 
     private void Update()
     {
         MouseFollowWithOffset();
+        Attack();
     }
 
 
@@ -75,13 +81,34 @@ public class SwordVisual : MonoBehaviour
 
     private void Attack()
     {
-        _animator.SetTrigger(ATTACK);
-        _weaponCollider.gameObject.SetActive(false); 
-        _weaponCollider.gameObject.SetActive(true);
+        if (_attackButtonDown && !_isAttacking)
+        {
+            _isAttacking = true;
+            _animator.SetTrigger(ATTACK);
+            _weaponCollider.gameObject.SetActive(true);
+            _slash = Instantiate(_swordSlash, _slashSpawnPoint.position, Quaternion.identity);
+            _slash.transform.parent = this.transform.parent;
 
-        _slash = Instantiate(_swordSlash, _slashSpawnPoint.position, Quaternion.identity);
-        _slash.transform.parent = this.transform.parent;
+            StartCoroutine(AttackCDCollider());
+        }
     }
+
+    private IEnumerator AttackCDCollider()
+    {
+        yield return new WaitForSeconds(_swordAttack);
+        _isAttacking = false;
+    }
+
+    private void StartAttacking()
+    {
+        _attackButtonDown = true;
+    }
+
+    private void StopAttacking()
+    {
+        _attackButtonDown = false;
+    }
+
 
     private void MouseFollowWithOffset()
     {
@@ -92,7 +119,8 @@ public class SwordVisual : MonoBehaviour
         {
             _activeWeapon.transform.rotation = Quaternion.Euler(0, -180, 0);
             _weaponCollider.transform.rotation = Quaternion.Euler(0, -180, 0);
-;        }
+            ;
+        }
         else
         {
             _activeWeapon.transform.rotation = Quaternion.Euler(0, 0, 0);

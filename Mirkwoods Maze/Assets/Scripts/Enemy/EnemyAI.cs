@@ -11,15 +11,18 @@ public class EnemyAI : MonoBehaviour
     //машина состояний
     private enum State
     {
-        Roaming
+        Roaming,
+        Dead
     }
 
     private State _state;
     private EnemyPathfinding _enemyPathfinding;
+    private Animator _animator;
 
     private void Awake()
     {
         _enemyPathfinding = GetComponent<EnemyPathfinding>();
+        _animator = GetComponent<Animator>();
         _state = State.Roaming;
     }
 
