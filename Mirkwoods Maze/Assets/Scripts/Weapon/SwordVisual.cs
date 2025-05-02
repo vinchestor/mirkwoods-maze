@@ -8,7 +8,7 @@ public class SwordVisual : MonoBehaviour
     [SerializeField] private GameObject _swordSlash; //slashAnimPrefab
     [SerializeField] private Transform _slashSpawnPoint;
     [SerializeField] private Transform _weaponCollider;
-    [SerializeField] private float _swordAttack = 0.5f;
+    [SerializeField] private float _swordAttack = 0.1f;
 
     private PlayerControls _playerControls;
     private Animator _animator;
