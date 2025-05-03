@@ -1,11 +1,11 @@
 
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : Singleton<PlayerController>
 {
     public bool FacingLeft { get { return facingLeft; } set { facingLeft = value; } }
 
-    public static PlayerController Instance;
 
     [SerializeField] private float _moveSpeed = 1f;
 
@@ -21,9 +21,9 @@ public class PlayerController : MonoBehaviour
     private bool facingLeft = false;
 
     //
-    private void Awake()
+    protected override void Awake()
     {
-        Instance = this;
+        base.Awake();
         _playerControls = new PlayerControls();
         _rigidbody = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
