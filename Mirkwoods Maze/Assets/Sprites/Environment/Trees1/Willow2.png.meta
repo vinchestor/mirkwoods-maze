@@ -108,7 +108,28 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Willow2_0
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 28
+        width: 60
+        height: 72
+      alignment: 9
+      pivot: {x: 0.49999994, y: 0.1392915}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c49f5cec440359439e5644d0f2e2dd6
+      internalID: 1596464197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +140,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Willow2_0: 1596464197
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
