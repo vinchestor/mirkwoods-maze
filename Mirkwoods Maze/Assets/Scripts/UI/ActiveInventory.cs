@@ -17,6 +17,8 @@ public class ActiveInventory : MonoBehaviour
     private void Start()
     {
         _playerControls.Inventory.Keyboard.performed += ctx => ToggleActiveSlot((int)ctx.ReadValue<float>());
+
+        ToggleActiveHighlight(0);
     }
 
     private void OnEnable()
@@ -35,7 +37,7 @@ public class ActiveInventory : MonoBehaviour
 
         foreach (Transform inventorySlot in this.transform)
         {
-             inventorySlot.GetChild(0).gameObject.SetActive(false);
+            inventorySlot.GetChild(0).gameObject.SetActive(false);
         }
 
         this.transform.GetChild(indexNum).GetChild(0).gameObject.SetActive(true);
@@ -45,6 +47,24 @@ public class ActiveInventory : MonoBehaviour
 
     private void ChangeActiveWeapon()
     {
-        Debug.Log(transform.GetChild(_activeSlotIndexNumber).GetComponent<InventorySlot>().GetWeaponInfo()._weaponPrefab.name);
+        if (ActiveWeapon.Instance.CurrentActiveWeapon != null)
+        {
+            Destroy(ActiveWeapon.Instance.CurrentActiveWeapon.gameObject);
+        }
+
+        if (!transform.GetChild(_activeSlotIndexNumber).GetComponentInChildren<InventorySlot>())
+        {
+            ActiveWeapon.Instance.WeaponNull();
+            return;
+        }
+
+        GameObject weaponToSpawn = transform.GetChild(_activeSlotIndexNumber).GetComponentInChildren<InventorySlot>().GetWeaponInfo()._weaponPrefab;
+
+        GameObject newWeapon = Instantiate(weaponToSpawn, ActiveWeapon.Instance.transform.position, Quaternion.identity);
+
+        newWeapon.transform.parent = ActiveWeapon.Instance.transform;
+
+        ActiveWeapon.Instance.NewWeapon(newWeapon.GetComponent<MonoBehaviour>());
+
     }
 }
