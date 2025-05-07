@@ -4,30 +4,18 @@ using UnityEngine;
 
 public class DamageSource : MonoBehaviour
 {
-    [SerializeField] private int _damageAmount = 1;
-    [SerializeField] private float _damageCooldown = 0.5f;
+    private int _damageAmount;
 
-    private float _lastDamageTime;
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void Start()
     {
-        TryDealDamage(collision);
+        MonoBehaviour currenActiveWeapon = ActiveWeapon.Instance.CurrentActiveWeapon;
+        _damageAmount = (currenActiveWeapon as IWeapon).GetWeaponInfo()._weaponDamage;
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        TryDealDamage(collision);
+        EnemyHealth enemyHealth = other.gameObject.GetComponent<EnemyHealth>();
+        enemyHealth?.TakeDamage(_damageAmount);
     }
 
-    private void TryDealDamage(Collider2D collision)
-    {
-        if (Time.time - _lastDamageTime < _damageCooldown) return;
-
-        if (collision.gameObject.GetComponent<EnemyHealth>())
-        {
-            EnemyHealth enemyHealth = collision.gameObject.GetComponent<EnemyHealth>();
-            enemyHealth.TakeDamage(_damageAmount);
-            _lastDamageTime = Time.time;
-        }
-    }
 }
