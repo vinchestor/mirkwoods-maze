@@ -121,4 +121,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _swordSlash: {fileID: 8779068959758174325, guid: d19e088fcf149c84ca5969eb3a1d95be, type: 3}
   _slashSpawnPoint: {fileID: 0}
-  _swordAttack: 0.3
+  _weaponInfo: {fileID: 11400000, guid: 2d644dd373b6f2b49847076e86b09f78, type: 2}

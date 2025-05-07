@@ -4,10 +4,40 @@ using UnityEngine;
 
 public class Staff : MonoBehaviour, IWeapon
 {
+    [SerializeField] private WeaponInfo _weaponInfo;
+
+    private void Update()
+    {
+        MouseFollowWithOffset();
+    }
+
     public void Attack()
     {
         Debug.Log("Staff Attack");
+    }
 
-        ActiveWeapon.Instance.ToggleIsAttacking(false);
+    public WeaponInfo GetWeaponInfo()
+    {
+        return _weaponInfo;
+    }
+
+
+
+
+
+
+    private void MouseFollowWithOffset()
+    {
+        Vector3 mousePos = Input.mousePosition;
+        Vector3 playerScreenPoint = Camera.main.WorldToScreenPoint(PlayerController.Instance.transform.position);
+
+        if (mousePos.x > playerScreenPoint.x)
+        {
+            ActiveWeapon.Instance.transform.rotation = Quaternion.Euler(0, -180, 0);
+        }
+        else
+        {
+            ActiveWeapon.Instance.transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
     }
 }

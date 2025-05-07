@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Serialization;
+using Unity.VisualScripting;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public class ActiveWeapon : Singleton<ActiveWeapon>
@@ -8,6 +10,7 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
     public MonoBehaviour CurrentActiveWeapon {  get; private set; }
 
     private PlayerControls _playerControls;
+    private float _timeBetweenAttacks;
 
     private bool _attackButtondown = false;
     private bool _isAttacking = false;
@@ -28,6 +31,8 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
     {
         _playerControls.Combat.Attack.started += _ => StartAttacking();
         _playerControls.Combat.Attack.canceled += _ => StopAttacking();
+
+        AttackCooldown();
     }
 
     private void Update()
@@ -38,6 +43,8 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
     public void NewWeapon(MonoBehaviour newWeapon)
     {
         CurrentActiveWeapon = newWeapon;
+
+        _timeBetweenAttacks = (CurrentActiveWeapon as IWeapon).GetWeaponInfo()._weaponCooldown;
     }
 
     public void WeaponNull()
@@ -45,9 +52,17 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
         CurrentActiveWeapon = null;
     }
 
-    public void ToggleIsAttacking(bool value)
+    private void AttackCooldown()
     {
-        _isAttacking = value;
+        _isAttacking = true;
+        StopAllCoroutines();
+        StartCoroutine(TimeBetweenAttacksRoutine());
+    }
+
+    private IEnumerator TimeBetweenAttacksRoutine()
+    {
+        yield return new WaitForSeconds(_timeBetweenAttacks);
+        _isAttacking = false;
     }
 
     private void StartAttacking()
@@ -64,7 +79,7 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
     {
         if (_attackButtondown && !_isAttacking)
         {
-            _isAttacking = true;
+            AttackCooldown();
             (CurrentActiveWeapon as IWeapon).Attack();
         }
     }

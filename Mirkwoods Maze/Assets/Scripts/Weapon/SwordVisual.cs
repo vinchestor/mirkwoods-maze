@@ -7,7 +7,8 @@ public class SwordVisual : MonoBehaviour, IWeapon
 {
     [SerializeField] private GameObject _swordSlash; //slashAnimPrefab
     [SerializeField] private Transform _slashSpawnPoint;
-    [SerializeField] private float _swordAttack = 0.1f;
+    //[SerializeField] private float _swordAttack = 0.1f;
+    [SerializeField] private WeaponInfo _weaponInfo;
 
     private Transform _weaponCollider;
 
@@ -38,6 +39,20 @@ public class SwordVisual : MonoBehaviour, IWeapon
 
     //public
 
+    public WeaponInfo GetWeaponInfo()
+    {
+        return _weaponInfo;
+    }
+
+    public void Attack()
+    {
+
+        _animator.SetTrigger(ATTACK);
+        _weaponCollider.gameObject.SetActive(true);
+        _slash = Instantiate(_swordSlash, _slashSpawnPoint.position, Quaternion.identity);
+        _slash.transform.parent = this.transform.parent;
+    }
+
     public void DoneAttackEvent()
     {
         _weaponCollider.gameObject.SetActive(false);
@@ -63,25 +78,9 @@ public class SwordVisual : MonoBehaviour, IWeapon
         }
     }
 
+    //private
 
-    //priavte
 
-    public void Attack()
-    {
-
-        _animator.SetTrigger(ATTACK);
-        _weaponCollider.gameObject.SetActive(true);
-        _slash = Instantiate(_swordSlash, _slashSpawnPoint.position, Quaternion.identity);
-        _slash.transform.parent = this.transform.parent;
-
-        StartCoroutine(AttackCDCollider());
-    }
-
-    private IEnumerator AttackCDCollider()
-    {
-        yield return new WaitForSeconds(_swordAttack);
-        ActiveWeapon.Instance.ToggleIsAttacking(false);
-    }
 
 
     private void MouseFollowWithOffset()
