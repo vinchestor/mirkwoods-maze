@@ -29,34 +29,32 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         if (_isDead) return;
-
+        damage = 1;
         _currentHealth -= damage;
         _knockback.GetKnockedBack(PlayerController.Instance.transform, 10f);
         StartCoroutine(_flash.FlashRoutine());
-        DetectDeath();
-    }
-
-    public void DetectDeath()
-    {
-        if (_currentHealth <= 0 && !_isDead)
+        if (_currentHealth <= 0)
         {
-            _isDead = true;
-            StartCoroutine(Die());
+            Die();
         }
     }
-    
-    private IEnumerator Die()
+
+    private void Die()
     {
+        _isDead = true;
+
+        var collider = GetComponent<Collider2D>();
+        if (collider != null) collider.enabled = false;
+
+        var rb = GetComponent<Rigidbody2D>();
+        if (rb != null) rb.simulated = false;
+
+        if (_knockback != null)
+        {
+            StopAllCoroutines();
+        }
+
         _animator.SetTrigger(DEATH);
-
-        var collider = GetComponent<Collider>();
-        if (collider != null)
-        {
-            collider.enabled = false;
-        }
-
-        yield return new WaitForSeconds(0.7f);
-
-        Destroy(gameObject);
+        Destroy(gameObject, 0.7f);
     }
 }

@@ -18,12 +18,15 @@ public class Flash : MonoBehaviour
         _defaultMaterial = _spriteRenderer.material;
     }
 
+    public float GetRestoreMatTime()
+    {
+        return _restoreDefaultMaterialTime;
+    }
+
     public IEnumerator FlashRoutine()
     {
         _spriteRenderer.material = _whiteFlashMaterial;
         yield return new WaitForSeconds(_restoreDefaultMaterialTime);
-
         _spriteRenderer.material = _defaultMaterial;
-        _enemyHealth.DetectDeath();
     }
 }

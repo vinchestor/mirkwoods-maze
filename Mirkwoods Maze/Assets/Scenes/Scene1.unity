@@ -37069,7 +37069,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.6953576, y: -1.0655599, z: -10}
+  m_LocalPosition: {x: 3.6949122, y: -1.0655799, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -101732,6 +101732,9 @@ GameObject:
   - component: {fileID: 1353978329}
   - component: {fileID: 1353978330}
   - component: {fileID: 1353978331}
+  - component: {fileID: 1353978334}
+  - component: {fileID: 1353978333}
+  - component: {fileID: 1353978332}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -101906,6 +101909,48 @@ CapsuleCollider2D:
   m_Offset: {x: 0.055810343, y: 0.03432409}
   m_Size: {x: 0.8071196, y: 0.1740049}
   m_Direction: 1
+--- !u!114 &1353978332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353978325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9027f7d10dc707f4398dc1f6be680b07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _knockBackTime: 0.2
+--- !u!114 &1353978333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353978325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6a18130c743db04493f0c08b2b510aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 3
+  _knockBackTrustAmount: 10
+  _damageRecoveryTime: 1
+--- !u!114 &1353978334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353978325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc562627cc4cbad43ba098e640f54578, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _whiteFlashMaterial: {fileID: 2100000, guid: b80505572b32979419260cba7682b82c, type: 2}
+  _restoreDefaultMaterialTime: 0.2
 --- !u!4 &1358566044 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 342554227047023938, guid: e27c55d0e6e603f4f946bf6f26b99409, type: 3}

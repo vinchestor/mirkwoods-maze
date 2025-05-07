@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 9186779363504284222}
   m_Layer: 0
   m_Name: Ork
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -308,7 +308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _startHealth: 2
-  _animator: {fileID: 0}
+  _animator: {fileID: 8734976601496215241}
 --- !u!114 &8947154000077419308
 MonoBehaviour:
   m_ObjectHideFlags: 0
