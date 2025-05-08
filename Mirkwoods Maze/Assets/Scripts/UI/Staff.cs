@@ -10,7 +10,7 @@ public class Staff : MonoBehaviour, IWeapon
 
     private Animator _animator;
 
-    readonly int AttackHash = Animator.StringToHash("Attack");
+    readonly int ATTACK_HASH = Animator.StringToHash("Attack");
 
     private void Awake()
     {
@@ -24,20 +24,19 @@ public class Staff : MonoBehaviour, IWeapon
 
     public void Attack()
     {
-        _animator.SetTrigger(AttackHash);
+        _animator.SetTrigger(ATTACK_HASH);
     }
 
     public void SpawnStaffProjectileEvent()
     {
         GameObject newLaser = Instantiate(_magicLaser, _magicLaserSpawnPoint.position, Quaternion.identity);
+        newLaser.GetComponent<MagicLaser>().UpdateLaserRange(_weaponInfo._weaponRange);
     }
 
     public WeaponInfo GetWeaponInfo()
     {
         return _weaponInfo;
     }
-
-
 
 
 

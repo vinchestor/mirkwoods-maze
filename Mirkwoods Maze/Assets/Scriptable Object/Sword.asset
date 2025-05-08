@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weaponPrefab: {fileID: 6078769009926781831, guid: c9b268f5d9a5b4f4fbb2f79b155587dd, type: 3}
   _weaponCooldown: 0.3
+  _weaponDamage: 0
+  _weaponRange: 0

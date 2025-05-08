@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8129957084877674822}
   - component: {fileID: 1137699546422377317}
   - component: {fileID: 5070827219426034713}
+  - component: {fileID: 695095420164253568}
   m_Layer: 0
   m_Name: Magic Laser
   m_TagString: Untagged
@@ -30,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 5082927968561266833}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.1, y: -3.1, z: 0}
+  m_LocalPosition: {x: -0.1, y: -2.715, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -82,12 +83,12 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
-  m_Size: {x: 0.875, y: 0.4375}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!70 &963247838573904627
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -117,11 +118,11 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.875, y: 0.4375}
+  m_Offset: {x: 0.49422264, y: -0.000000058915923}
+  m_Size: {x: 0.9185213, y: 0.43750435}
   m_Direction: 1
 --- !u!50 &8129957084877674822
 Rigidbody2D:
@@ -132,7 +133,7 @@ Rigidbody2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5082927968561266833}
   m_BodyType: 0
-  m_Simulated: 0
+  m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
@@ -174,3 +175,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff3326058a8edc458506658f79604f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _laserGrowTime: 0.22
+--- !u!114 &695095420164253568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5082927968561266833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7ac8cbb2b22afa48a24c479fecc66b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fadeTime: 0.4

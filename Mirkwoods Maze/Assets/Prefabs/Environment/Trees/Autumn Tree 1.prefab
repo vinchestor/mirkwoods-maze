@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4808174253929684394
+--- !u!1 &7250380014466034308
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,38 +8,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6149224367946361958}
-  - component: {fileID: 2107208081949459862}
-  - component: {fileID: 7092199068136817342}
+  - component: {fileID: 8372473816034985846}
+  - component: {fileID: 16277639220993060}
+  - component: {fileID: 5459831553793913895}
   m_Layer: 0
-  m_Name: Ent Women
+  m_Name: Autumn Tree 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6149224367946361958
+--- !u!4 &8372473816034985846
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4808174253929684394}
+  m_GameObject: {fileID: 7250380014466034308}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.1924686, y: -18.679333, z: 0.044972736}
+  m_LocalPosition: {x: 4.65, y: 26.67, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &2107208081949459862
+--- !u!212 &16277639220993060
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4808174253929684394}
+  m_GameObject: {fileID: 7250380014466034308}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 201161641, guid: b419bef0b417e5f468a8886d59d94812, type: 3}
+  m_Sprite: {fileID: 378508028, guid: 24bb9369e602a614cbc25d820992e129, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -85,13 +85,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
---- !u!70 &7092199068136817342
+--- !u!70 &5459831553793913895
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4808174253929684394}
+  m_GameObject: {fileID: 7250380014466034308}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -117,6 +117,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.14389984, y: 0.82996714}
-  m_Size: {x: 2.5384524, y: 2.5384429}
+  m_Offset: {x: 0.11258873, y: 0.639659}
+  m_Size: {x: 3.340839, y: 2.136925}
   m_Direction: 1
