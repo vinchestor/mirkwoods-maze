@@ -1,5 +1,3 @@
-
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : Singleton<PlayerController>
@@ -33,9 +31,22 @@ public class PlayerController : Singleton<PlayerController>
         _knockback = GetComponent<Knockback>();
     }
 
+    private void Start()
+    {
+        ActiveInventory.Instance.EquipStartingWeapon();
+    }
+
     private void OnEnable()
     {
         _playerControls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        if (_playerControls != null)
+        {
+            _playerControls.Disable();
+        }
     }
 
     private void Update()
@@ -49,6 +60,8 @@ public class PlayerController : Singleton<PlayerController>
         Move();
     }
 
+
+    //public 
     public Transform GetWeaponCollider()
     {
         return _weaponCollider;
@@ -68,10 +81,11 @@ public class PlayerController : Singleton<PlayerController>
 
     private void Move()
     {
-        if (_knockback.GettingKnockedBack)
+        if (_knockback.GettingKnockedBack || PlayerHealth.Instance.isDead)
         {
             return;
         }
+
         _rigidbody.MovePosition(_rigidbody.position + _movement * (_moveSpeed * Time.fixedDeltaTime));
     }
 

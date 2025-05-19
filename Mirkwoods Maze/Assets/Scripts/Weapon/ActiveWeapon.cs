@@ -1,8 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Xml.Serialization;
-using Unity.VisualScripting;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public class ActiveWeapon : Singleton<ActiveWeapon>
@@ -22,11 +18,6 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
         _playerControls = new PlayerControls();
     }
 
-    private void OnEnable()
-    {
-        _playerControls.Enable();
-    }
-
     private void Start()
     {
         _playerControls.Combat.Attack.started += _ => StartAttacking();
@@ -40,6 +31,13 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
         Attack();
     }
 
+    private void OnEnable()
+    {
+        _playerControls.Enable();
+    }
+
+    //public
+
     public void NewWeapon(MonoBehaviour newWeapon)
     {
         CurrentActiveWeapon = newWeapon;
@@ -51,6 +49,9 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
     {
         CurrentActiveWeapon = null;
     }
+
+
+    //private
 
     private void AttackCooldown()
     {
