@@ -1,12 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics.Contracts;
 using UnityEngine;
 
 public class PauseManager : MonoBehaviour
 {
-    public GameObject pausePanel;
-    public GameObject pauseButton;
+    [SerializeField] public GameObject pauseButton; // Изменил на public или [SerializeField]
+    [SerializeField] public GameObject pausePanel;
     public bool isPause = false;
 
     public void PauseButtonClick()
@@ -17,7 +14,6 @@ public class PauseManager : MonoBehaviour
             Time.timeScale = 1f;
             pausePanel.SetActive(false);
             pauseButton.SetActive(true);
-
         }
         else
         {
@@ -27,5 +23,16 @@ public class PauseManager : MonoBehaviour
             pauseButton.SetActive(false);
         }
     }
-}
 
+    public void ButtonSetActiveFalse()
+    {
+        if (pauseButton != null) // Добавил проверку на null
+            pauseButton.SetActive(false);
+    }
+
+    public void ButtonSetActiveTrue()
+    {
+        if (pauseButton != null) // Добавил проверку на null
+            pauseButton.SetActive(true);
+    }
+}

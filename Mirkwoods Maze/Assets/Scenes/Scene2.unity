@@ -19049,23 +19049,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2317484924952161140, guid: 0bfff5886417c194f8b72a051eb59f92, type: 3}
       propertyPath: m_LocalScale.x
-      value: 3.622688
+      value: 3.7828107
       objectReference: {fileID: 0}
     - target: {fileID: 2317484924952161140, guid: 0bfff5886417c194f8b72a051eb59f92, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.7944301
+      value: 1.0265604
       objectReference: {fileID: 0}
     - target: {fileID: 2317484924952161140, guid: 0bfff5886417c194f8b72a051eb59f92, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.0088
+      value: 1.053389
       objectReference: {fileID: 0}
     - target: {fileID: 2317484924952161140, guid: 0bfff5886417c194f8b72a051eb59f92, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.93
+      value: 0.69
       objectReference: {fileID: 0}
     - target: {fileID: 2317484924952161140, guid: 0bfff5886417c194f8b72a051eb59f92, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.62
+      value: 0.52
       objectReference: {fileID: 0}
     - target: {fileID: 2317484924952161140, guid: 0bfff5886417c194f8b72a051eb59f92, type: 3}
       propertyPath: m_LocalPosition.z
@@ -19870,8 +19870,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2adb5bc5f6975ef4f89c6dc3fc288db4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pausePanel: {fileID: 2718347087453730960}
   pauseButton: {fileID: 7615641699651629201}
+  pausePanel: {fileID: 2718347087453730960}
   isPause: 0
 --- !u!4 &970747301522170183
 Transform:
@@ -20497,8 +20497,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2adb5bc5f6975ef4f89c6dc3fc288db4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pausePanel: {fileID: 2718347087453730960}
   pauseButton: {fileID: 7615641699651629201}
+  pausePanel: {fileID: 2718347087453730960}
   isPause: 0
 --- !u!60 &2711878838604783164
 PolygonCollider2D:
@@ -21614,8 +21614,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2adb5bc5f6975ef4f89c6dc3fc288db4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pausePanel: {fileID: 2718347087453730960}
   pauseButton: {fileID: 7615641699651629201}
+  pausePanel: {fileID: 2718347087453730960}
   isPause: 0
 --- !u!224 &6524120878150021662
 RectTransform:
