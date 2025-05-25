@@ -5,9 +5,8 @@ using UnityEngine;
 
 public class SwordVisual : MonoBehaviour, IWeapon
 {
-    [SerializeField] private GameObject _swordSlash; //slashAnimPrefab
+    [SerializeField] private GameObject _swordSlash;
     [SerializeField] private Transform _slashSpawnPoint;
-    //[SerializeField] private float _swordAttack = 0.1f;
     [SerializeField] private WeaponInfo _weaponInfo;
 
     private Transform _weaponCollider;
@@ -16,7 +15,7 @@ public class SwordVisual : MonoBehaviour, IWeapon
 
     private const string ATTACK = "Attack";
 
-    private GameObject _slash; //slashAnim
+    private GameObject _slash;
 
     //
     private void Awake()
@@ -79,9 +78,6 @@ public class SwordVisual : MonoBehaviour, IWeapon
     }
 
     //private
-
-
-
 
     private void MouseFollowWithOffset()
     {

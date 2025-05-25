@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PauseManager : MonoBehaviour
 {
-    [SerializeField] public GameObject pauseButton; // Изменил на public или [SerializeField]
+    [SerializeField] public GameObject pauseButton;
     [SerializeField] public GameObject pausePanel;
     public bool isPause = false;
 
@@ -26,13 +26,13 @@ public class PauseManager : MonoBehaviour
 
     public void ButtonSetActiveFalse()
     {
-        if (pauseButton != null) // Добавил проверку на null
+        if (pauseButton != null)
             pauseButton.SetActive(false);
     }
 
     public void ButtonSetActiveTrue()
     {
-        if (pauseButton != null) // Добавил проверку на null
+        if (pauseButton != null)
             pauseButton.SetActive(true);
     }
 }
