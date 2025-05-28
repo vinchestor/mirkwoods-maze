@@ -8,15 +8,15 @@ public class PopUpManager : MonoBehaviour
 
     void Start()
     {
-        if (PlayerController.Instance != null)
+        if (ActiveWeapon.Instance != null)
         {
-            PlayerController.Instance.gameObject.SetActive(false);
+            ActiveWeapon.Instance.gameObject.SetActive(false);
         }
+
+        Time.timeScale = 0f;
 
         if (welcomePanel != null)
             welcomePanel.SetActive(true);
-
-        Time.timeScale = 0f;
 
         if (pauseManager != null)
             pauseManager.ButtonSetActiveFalse();
@@ -36,14 +36,14 @@ public class PopUpManager : MonoBehaviour
         if (controlsPanel != null)
             controlsPanel.SetActive(false);
 
-        Time.timeScale = 1f;
-
-        if (PlayerController.Instance != null)
-        {
-            PlayerController.Instance.gameObject.SetActive(true);
-        }
-
         if (pauseManager != null)
             pauseManager.ButtonSetActiveTrue();
+
+        if (ActiveWeapon.Instance != null)
+        {
+            ActiveWeapon.Instance.gameObject.SetActive(true);
+        }
+
+        Time.timeScale = 1f;
     }
 }
