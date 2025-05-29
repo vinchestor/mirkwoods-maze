@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MagicLaser">
+    <Position X="5.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAgACAAAAAAAYAAgAAAAEABQAAAAAAAAAABAEA=</HashCode>
+      <FileName>Assets\Scripts\Weapon\Staff\MagicLaser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SwordSlashVisual">
+    <Position X="7.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAACAAAACAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Weapon\Sword\SwordSlashVisual.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SwordVisual" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAQAAAgCKAEAEACAAAgAAAAIgAAAAAIAAAAAgAIEA=</HashCode>
+      <FileName>Assets\Scripts\Weapon\Sword\SwordVisual.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ActiveWeapon">
+    <Position X="2.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>JQRAAAAAgGAAAAAIEAAAAAQAAIAAAAAAAAABAABACEA=</HashCode>
+      <FileName>Assets\Scripts\Weapon\ActiveWeapon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DamageSource">
+    <Position X="4" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAIAAAAAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Weapon\DamageSource.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MouseFollow">
+    <Position X="4" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Assets\Scripts\Weapon\MouseFollow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Singleton&lt;T&gt;" Collapsed="true">
+    <Position X="2.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Managment\Singleton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnityEngine.MonoBehaviour" Collapsed="true">
+    <Position X="5.75" Y="1" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
