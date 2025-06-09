@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class SpriteFade : MonoBehaviour
 {
-    [SerializeField] private float _fadeTime = 0.4f;
+    [SerializeField] private float _fadeTime = 0.5f;
 
     private SpriteRenderer _spriteRenderer;
 
